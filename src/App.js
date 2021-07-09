@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Todo from "./component/Todo"
+import Forms from "./component/Forms"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    myString: "Hello",
+    newString: "I am RJ",   
+  };
+
+  handleChange = () =>{
+    this.setState({
+      newString : "RJ Group"
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome rj</h1>
+        <h2>{this.state.myString}</h2>
+        <button onClick={this.handleChange}>Change data</button>
+        <Todo sendingData={this.state.newString}/>
+        <Forms />
+      </div>
+    );
+  }
 }
 
 export default App;
